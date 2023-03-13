@@ -1,7 +1,7 @@
 #include <HardwareSerial.h>
 
-#define RE 1  //output pin
-#define DE 3  //output pin
+#define RE 18  //output pin
+#define DE 19  //output pin
 
 //const byte code[]= {0x01, 0x03, 0x00, 0x1e, 0x00, 0x03, 0x65, 0xCD};
 const byte nitro[] = { 0x01, 0x03, 0x00, 0x00, 0x00, 0x01, 0x84, 0x0a };
@@ -9,11 +9,11 @@ const byte phos[] = { 0x01, 0x03, 0x00, 0x01, 0x00, 0x01, 0xd5, 0xca };
 const byte pota[] = { 0x01, 0x03, 0x00, 0x02, 0x00, 0x01, 0x25, 0xca };
 
 byte values[11];
-HardwareSerial SerialPort(2);
+HardwareSerial SerialPort(0);
 
 void setup() {
   Serial.begin(9600);
-  SerialPort.begin(9600, SERIAL_8N1, 16, 17);  //16 rx, 17 tx
+  SerialPort.begin(9600, SERIAL_8N1, 3, 1);  //16 rx, 17 tx
   pinMode(RE, OUTPUT);
   pinMode(DE, OUTPUT);
 
